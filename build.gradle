@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = "2.1.7.RELEASE"
+        springWebmvcVersion = "5.1.9.RELEASE"
     }
 
     repositories {
@@ -25,4 +26,15 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
 }
+
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello from gradle",
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
+])
+
